@@ -1,8 +1,8 @@
 package ddk
 
 import (
-	"github.com/dcsunny/pinduoduo-sdk/common"
-	"github.com/dcsunny/pinduoduo-sdk/util"
+	"github.com/yancyzhou/pinduoduo-sdk/common"
+	"github.com/yancyzhou/pinduoduo-sdk/util"
 )
 
 type MemberAuthorityQueryParams struct {
@@ -22,7 +22,6 @@ func (this *DuoduoKe) MemberAuthorityQuery(p *MemberAuthorityQueryParams) (*Memb
 	params, paramsURL := util.FormatURLParams(p)
 	url := this.GetURL(apiType, "", params, paramsURL)
 	var result MemberAuthorityQueryResult
-
 	err := util.HttpPOST(url, nil, &result)
 	if err != nil {
 		return nil, err

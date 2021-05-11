@@ -1,8 +1,10 @@
 package ddk
 
 import (
-	"github.com/dcsunny/pinduoduo-sdk/common"
-	"github.com/dcsunny/pinduoduo-sdk/util"
+	"fmt"
+
+	"github.com/yancyzhou/pinduoduo-sdk/common"
+	"github.com/yancyzhou/pinduoduo-sdk/util"
 )
 
 /**
@@ -72,7 +74,7 @@ func (this *DuoduoKe) GoodsPromotionUrlGenerate(p *GoodsPromotionUrlGeneratePara
 	apiType := `pdd.ddk.goods.promotion.url.generate`
 	params, paramsURL := util.FormatURLParams(p)
 	url := this.GetURL(apiType, "", params, paramsURL)
-
+	fmt.Println(url)
 	var result GoodsPromotionUrlGenerateResult
 	err := util.HttpPOST(url, nil, &result)
 	if err != nil {
