@@ -7,8 +7,8 @@
     import (
     	"fmt"
     
-    	"github.com/dcsunny/pinduoduo-sdk/common"
-    	"github.com/dcsunny/pinduoduo-sdk/ddk"
+    	"github.com/yancyzhou/pinduoduo-sdk/common"
+    	"github.com/yancyzhou/pinduoduo-sdk/ddk"
     )
     
     func main() {
@@ -25,5 +25,3 @@
 ```
 
 ###
-
-觉得对你有帮助,给个start. 也欢迎大家一起完善这个sdk

@@ -15,34 +15,16 @@ func TestMemeber(t *testing.T) {
 	pid := "15983074_207918426"
 	query.Keyword = &s
 	query.Pid = &pid
-	c := "{'uid':'vincent'}"
-	var q ddk.MemberAuthorityQueryParams
-	q.Pid = &pid
-	q.CustomParameters = &c
-	query.CustomParameters = &c
-	result, err := pdd.GoodsSearch(&query)
-	fmt.Println(result.GoodsSearchResponse.GoodsList[0].GoodsID, result.GoodsSearchResponse.GoodsList[0].GoodsSign)
-	authorityQuery, err := pdd.MemberAuthorityQuery(&q)
+	c := "{'uid':'5ff5e09241141f0001fa3865'}"
+	var q ddk.GoodsZsUnitUrlGenParams
+	q.CustomParameters = c
+	q.Pid = pid
+	q.SourceUrl = "https://p.pinduoduo.com/WFpFzQwq"
+	goodsZsUnitUrlGenResult, err := pdd.GoodsZsUnitUrlGen(&q)
 	if err != nil {
-		fmt.Println("err", err)
+		fmt.Errorf("error is %t",err)
+
 	}
-	if authorityQuery.AuthorityQueryResponse.Bind == 1 {
-		fmt.Println("Authority is Success")
-	} else {
-		var goodsq ddk.RpPromUrlGenerateParams
-		ChannelType := 10
-		goodsq.ChannelType = &ChannelType
-		goodsq.PIdList = &[]string{pid}
-		goodsq.CustomParameters = &c
-		generate, err := pdd.RpPromUrlGenerate(&goodsq)
-		if err != nil {
-			fmt.Println("GoodsPromotionUrlGenerate err", err)
-		}
-		fmt.Println(generate.RpPromotionUrlGenerateResponse.UrlList)
-	}
-	fmt.Println(err)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
+	fmt.Println(goodsZsUnitUrlGenResult.GoodsZsUnitGenerateResponse)
+
 }
