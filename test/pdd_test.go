@@ -9,7 +9,7 @@ import (
 )
 
 func TestMemeber(t *testing.T) {
-	pdd := ddk.NewDuoduoKe(common.NewContext("5a5813b638314d1792b711e116fc65da", "e5f7992cd3f0b7652733932235214488c3b1d9e6"))
+	pdd := ddk.NewDuoduoKe(common.NewContext("", ""))
 	var query ddk.GoodsSearchParams
 	s := "iphone"
 	pid := "15983074_207918426"
